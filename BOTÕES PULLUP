@@ -1,0 +1,29 @@
+//Antônio Monteiro, eng de Controle e Automação
+//02/05/2022
+// Ligar e desigar led com botões PULLP
+
+int buttonStateON = 0;
+int buttonStateOFF = 0;
+
+void setup()
+{
+  pinMode(2, INPUT_PULLUP);
+  pinMode(3, INPUT_PULLUP);
+  pinMode(LED_BUILTIN, OUTPUT);
+}
+
+void loop()
+{
+  buttonStateON = digitalRead(2);
+  buttonStateOFF = digitalRead(3);
+  
+  if (buttonStateON == LOW) {
+      digitalWrite(LED_BUILTIN, HIGH); 
+  } 
+  
+  else if (buttonStateOFF == LOW) {
+    
+    digitalWrite(LED_BUILTIN, LOW);
+  }
+  delay(10);
+}
