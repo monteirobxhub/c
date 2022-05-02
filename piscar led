@@ -1,0 +1,30 @@
+//Antônio Monteiro, eng de Controle e Automação
+//02/05/2022
+// piscar led
+
+int buttonState = 0;
+
+void setup()
+{
+  pinMode(2, INPUT);
+  pinMode(LED_BUILTIN, OUTPUT);
+}
+
+void loop()
+{
+  buttonState = digitalRead(2);
+  
+  if (buttonState == HIGH) {
+    for(int i=0; i<5; i++){
+      digitalWrite(LED_BUILTIN, HIGH);
+      delay (1000);
+      digitalWrite(LED_BUILTIN, LOW);
+      delay (1000);
+    }       
+  } 
+  else {
+    // desliga o led
+    digitalWrite(LED_BUILTIN, LOW);
+  }
+  delay(10);
+}
