@@ -1,0 +1,144 @@
+// Antonio Monteiro
+//Engenhria de controle - 25/04/2022
+//Crir efeitos de led
+
+#define LED1 10
+#define LED2 11
+#define LED3 12
+#define LED4 13
+#define RELEA 10
+#define RELEB 11
+
+int releState = LOW;
+
+void efeito1(void);
+void efeito2(void);
+void efeito3(void);
+void efeito4(void);
+
+void quest2(const int LED);
+
+void quest3(void);
+
+void rele(const int RELE, const int DELAY);
+
+void releestado(const int RELE, int releState);
+
+void setup ()
+{
+	pinMode(LED1, OUTPUT);
+	pinMode(LED2, OUTPUT);
+	pinMode(LED3, OUTPUT);
+	pinMode(LED4, OUTPUT);
+  	pinMode(RELEA, OUTPUT);
+  	pinMode(RELEB, OUTPUT);
+}
+
+void loop()
+{
+  //efeito1();
+  //efeito2();
+  //efeito3();
+  //efeito4();
+  //quest2(LED1);
+  //void quest3();
+  //rele(RELEA, 5000);
+  releState = !releState;
+  releestado(RELEA, releState);
+	
+}
+
+/*void efeito1(void){
+  digitalWrite(LED1, HIGH);
+  digitalWrite(LED4, HIGH);
+  delay(1000);
+  digitalWrite(LED2, LOW);
+  digitalWrite(LED3, LOW);
+  delay(1000);
+  digitalWrite(LED2, HIGH);
+  digitalWrite(LED3, HIGH);
+  delay(1000);
+  digitalWrite(LED1, LOW);
+  digitalWrite(LED4, LOW);
+  delay(1000);
+  
+}
+
+void efeito2(void){
+  digitalWrite(LED1, HIGH);
+  digitalWrite(LED2, HIGH);
+  digitalWrite(LED3, HIGH);
+  digitalWrite(LED4, HIGH);
+  delay(1000);
+  digitalWrite(LED1, LOW);
+  digitalWrite(LED2, LOW);
+  digitalWrite(LED3, LOW);
+  digitalWrite(LED4, LOW);
+  delay(1000);
+  
+}
+
+void efeito3(void){
+  digitalWrite(LED1, HIGH);
+  digitalWrite(LED2, HIGH);
+  digitalWrite(LED3, LOW);
+  digitalWrite(LED4, LOW);
+  delay(1000);
+  digitalWrite(LED1, LOW);
+  digitalWrite(LED2, LOW);
+  digitalWrite(LED3, LOW);
+  digitalWrite(LED4, LOW);
+  delay(1000);
+}
+
+void efeito4(void){
+ digitalWrite(LED4, HIGH);
+  digitalWrite(LED2, HIGH);
+  digitalWrite(LED3, LOW);
+  digitalWrite(LED1, LOW);
+  delay(1000);
+  digitalWrite(LED1, LOW);
+  digitalWrite(LED2, LOW);
+  digitalWrite(LED3, LOW);
+  digitalWrite(LED4, LOW);
+  delay(1000);
+  
+}
+
+void quest2(const int LED){
+  digitalWrite(LED, LOW);
+  delay(1000);
+  digitalWrite(LED, HIGH);
+  delay(1000);
+  
+}
+
+
+void quest3(void){
+ int i = 0;
+ for (int i = 0; i <6; i++)
+ {
+  if i<=5
+  {
+    
+  }
+ }
+  
+}
+
+void rele(const int RELE, const int DELAY){
+  digitalWrite(RELE, LOW);
+  delay(DELAY);
+  digitalWrite(RELE, HIGH);
+  delay(DELAY);
+   
+}*/
+
+void rele(const int RELE, int releState){
+  digitalWrite(RELE, releState);
+  delay(1000);
+   
+}
+
+
+
