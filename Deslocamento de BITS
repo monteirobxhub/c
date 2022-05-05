@@ -1,0 +1,26 @@
+// Antonio Monteiro
+//Engenhria de controle - 05/05/2022
+//Manipulação de bits com o uso de portas lógicas
+
+
+void setup(){
+  DDRB = 0b00111100; //PB5 (bit 5 PORTB configurado como saida)
+ PORTB = 0b00000000; //Garaintindo o Estado inicial dos LEDs
+}
+
+void loop(){
+  for(int i= 0;i<=5;i++) // função para fazer o deslocamento dos bits automaticamente
+  {
+    PORTB|= (1<<i);
+  	delay(1000);
+  	PORTB = 0b00000000;
+  	delay(1000);
+  }
+  //PORTB = PORTB | 0b00111100; //Operação da porta OR
+  //PORTB |= 0b00111100; // Simplificação da operação da porta OR
+  /*PORTB|= (1<<5); //Outra simplificação, deslocamento de bits
+  delay(1000);
+  PORTB = 0b00000000;
+  delay(1000);*/
+}
+
