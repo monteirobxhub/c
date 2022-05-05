@@ -1,0 +1,16 @@
+// Antonio Monteiro
+//Engenhria de controle - 05/05/2022
+//Manipulação de bits
+
+
+
+void setup(){
+  DDRB = 0b00100000;  //PB5 (bit 5 PORTB configurado como saida)
+}
+
+void loop(){
+  PORTB = 0b00100000;  //Bit 5 do PORTB em nivel logico alto
+  delay(1000);
+  PORTB = 0b00000000;
+  delay(1000);
+}
