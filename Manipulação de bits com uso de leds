@@ -1,0 +1,38 @@
+// Antonio Monteiro
+//Engenhria de controle - 05/05/2022
+//Manipulação de bits com o uso de leds
+
+void primeiroEfeito(void);
+void segundoEfeito(void);
+
+void setup(){
+  DDRB = 0b00111100; //PB5 (bit 5 PORTB configurado como saida)
+ 
+}
+
+void loop(){
+  primeiroEfeito();
+  delay(1000);
+  segundoEfeito();
+}
+
+void primeiroEfeito(void) // acende os leds 1 e 4 depois 2 e 3
+{
+  PORTB = 0b00100100; 
+  delay(1000);
+  PORTB = 0b00011000;
+  delay(1000);
+  
+}
+
+void segundoEfeito(void) // Acende os leds de em ordem da esquerda para a direita
+{
+  PORTB = 0b00100000; 
+  delay(1000);
+  PORTB = 0b00010000;
+  delay(1000);
+  PORTB = 0b00001000; 
+  delay(1000);
+  PORTB = 0b00000100;
+  delay(1000);
+}
