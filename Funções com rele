@@ -1,0 +1,38 @@
+// Antonio Monteiro
+//Engenhria de controle - 05/05/2022
+//Crir efeitos de led
+
+
+#define RELEA 10
+#define RELEB 11
+
+int releState = LOW;
+
+void rele(const int RELE, const int DELAY);
+
+void releestado(const int RELE, int releState);
+
+void setup ()
+{
+  	pinMode(RELEA, OUTPUT);
+  	pinMode(RELEB, OUTPUT);
+}
+
+void loop()
+{
+  //rele(RELEA, 5000);
+  releState = !releState;
+  releestado(RELEA, releState);
+	
+}
+
+
+
+void releestado(const int RELE, int releState){
+  digitalWrite(RELE, releState);
+  delay(1000);
+   
+}
+
+
+
