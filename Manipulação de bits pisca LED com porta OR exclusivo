@@ -1,0 +1,18 @@
+// Antonio Monteiro
+//Engenhria de controle - 09/05/2022
+//Manipulação de bits pisca LED com porta OR exclusivo
+
+
+void setup(){
+  DDRB = 0b00110000; //PB5 (bit 5 PORTB configurado como saida)
+ 
+}
+
+void loop(){
+
+    PORTB = PORTB ^ (1<<5); // função OR exclusivo
+  	delay(1000);
+  	
+
+}
+
