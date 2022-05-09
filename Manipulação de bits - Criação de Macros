@@ -1,0 +1,23 @@
+// Antonio Monteiro
+//Engenhria de Controlee Automação(IFPB) - 09/05/2022
+//Manipulação de bits - Criação de Macros
+
+#define setBit(valor, bit) (valor |= (1<<bit))
+#define resetBit(valor, bit) (valor &= (0<<bit))
+
+#define LED 5
+
+void setup(){
+  DDRB = 0b00110000; //PB5 (bit 5 PORTB configurado como saida)
+ setBit(DDRB, LED);
+
+}
+
+void loop(){
+  setBit(PORTB, LED);
+  delay(1000);
+  resetBit(DDRB, LED);
+  delay(1000);
+	
+}
+
