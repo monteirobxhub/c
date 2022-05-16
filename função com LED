@@ -1,0 +1,30 @@
+//Antônio Monteiro
+
+bool lastState = 0;
+int pressButton = 0;
+byte byteRead;
+bool buttonState = 0;
+
+void setup()
+{
+  pinMode(2, INPUT_PULLUP);
+  Serial.begin(9600);
+  lastState = digitalRead(2);
+}
+
+void loop()
+{
+  buttonState = digitalRead(2);
+  if(buttonState != digitalRead(2)) //verifica os dados disponíveis pra leitura
+  {
+    pressButton++; 
+   //byteRead = Serial.read(); //le o byte mais recente no buffer da serial
+   //Serial.write(byteRead); //reenvia para o computador o dado recebido
+  }
+  if(pressButton == 2)
+  {
+   Serial.println("Botao pressionado");
+    pressButton =0;
+  }
+  lastState = buttonState;
+ }
