@@ -1,0 +1,50 @@
+//Antônio Monteiro
+//Eng de controle e automação -Sistemas Embarcados I
+//19/05/2022
+//Servo motor - girar em sentido horário e anti-horario
+
+#include <Servo.h>
+
+int pos = 0;
+String incomingByte ; 
+
+Servo servo_9;
+
+void setup()
+{
+  Serial.begin(9600);
+  servo_9.attach(9, 500, 2500);
+}
+
+void loop()
+{
+  
+
+  incomingByte = Serial.readStringUntil('\n');
+  
+    //função para fazer o mecanismo girar quando o comando é dado - Sentido horario
+    if (incomingByte == "h"){ 
+      
+      Serial.println("h");
+      servo_9.write(pos = 0); //garante a posição inivial do servo
+  		for (pos = 0; pos <= 180; pos += 1) {
+    
+    	servo_9.write(pos);
+    
+   		delay(15); 
+  		}
+    }
+    
+    //função para fazer o mecanismo girar quando o comando é dado - Sentido anti-horario
+    else if (incomingByte == "ah") {
+      
+      Serial.println("ah");
+      servo_9.write(pos = 0); //garante a posição inivial do servo
+  		for (pos = 180; pos >= 0; pos -= 1) {
+    
+    	servo_9.write(pos);
+    
+   		delay(15); 
+  		}
+    }
+}
