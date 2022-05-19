@@ -1,0 +1,34 @@
+//Antônio Monteiro
+//Eng de controle e automação -Sistemas Embarcados I
+//19/05/2022
+//Servo motor - mudar a posição escolhendo o angulo
+
+#include <Servo.h>
+
+int pos = 0;
+String incomingByte ; 
+int angulo = 0;
+int velocidade = 15; //altera a velocidade do movimento 
+
+  
+Servo servo_9;
+
+void setup()
+{
+  Serial.begin(9600);
+  servo_9.attach(9, 500, 2500);
+}
+
+void loop()
+{
+  
+  //Função para setar o angulo do servo
+  if(Serial.available()>0){
+    angulo = Serial.parseInt();
+    for (pos = 0; pos <= angulo; pos += 1) {
+    
+      servo_9.write(pos);
+      delay(15);
+  }
+  }	
+}
