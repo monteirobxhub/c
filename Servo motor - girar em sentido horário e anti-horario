@@ -7,6 +7,7 @@
 
 int pos = 0;
 String incomingByte ; 
+int velocidade = 15; //altera a velocidade do movimento 
 
 Servo servo_9;
 
@@ -31,7 +32,7 @@ void loop()
     
     	servo_9.write(pos);
     
-   		delay(15); 
+   		delay(velocidade); // implanta a velocidade
   		}
     }
     
@@ -44,7 +45,8 @@ void loop()
     
     	servo_9.write(pos);
     
-   		delay(15); 
+   		delay(velocidade); //implanta a velocidade
   		}
     }
+  	
 }
