@@ -1,0 +1,28 @@
+//Antônio Monteiro, eng de Controle e Automação
+//23/05/2022
+// Servo Motor associado a um potenciometro
+#include <Servo.h>
+
+
+int angulo = 0;
+  
+Servo servo_9;
+int pinoServo = 9;
+
+void setup() {
+  
+  Serial.begin(115200);
+  servo_9.attach(pinoServo);
+}
+
+
+void loop() {
+  
+  
+  int angulo = analogRead(0);
+  angulo = map(angulo, 0, 1023, 0, 180);
+   servo_9.write(angulo);
+
+  delay(10);
+  
+}
