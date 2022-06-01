@@ -1,0 +1,49 @@
+// Antonio Monteiro
+// Engenharia de Controle e eutomação - 01/06/2022
+// Mudar o sentido de rotaçã do motor com uma ponte H
+
+#define Led1 13
+#define Led2 12
+
+String sentido;
+
+void setup()
+{
+  Serial.begin(9600);
+  pinMode(Led1, OUTPUT);
+  pinMode(Led2, OUTPUT);
+}
+
+void loop()
+{
+  if (Serial.available()>0){
+  sentido = Serial.readStringUntil('\n');
+  
+  if(sentido == "sh")
+     {
+       digitalWrite(Led1, HIGH);
+       digitalWrite(Led2, LOW);
+    Serial.println(sentido);
+     }
+   else if(sentido == "sa")
+     {
+       digitalWrite(Led2, HIGH);
+       digitalWrite(Led1, LOW);
+     Serial.println(sentido);
+     }
+    else if(sentido == "pm")
+     {
+      digitalWrite(Led1, LOW);
+      digitalWrite(Led2, LOW);
+      Serial.println(sentido);
+      Serial.println("PONTO MORTO");
+     }
+    else if(sentido == "fr")
+     {
+      digitalWrite(Led1, LOW);
+      digitalWrite(Led2, LOW);
+      Serial.println(sentido);
+      Serial.println("FREIO");
+     }
+  }
+}
